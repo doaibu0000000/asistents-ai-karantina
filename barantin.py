@@ -47,6 +47,8 @@ def login_baru():
     if not captcha:
         return False
 
+    timestamp_sekarang = int(time.time() * 1000)
+
     payload = {
         "username": config.USERNAME,
         "password": config.PASSWORD,
@@ -55,7 +57,7 @@ def login_baru():
         "captcha": captcha,
         "captchaToken": token,
         "location": {
-            "timestamp": 1781070693295,
+            "timestamp": timestamp_sekarang,
             "coords": {
                 "accuracy": 50000,
                 "latitude": -6.5444,
