@@ -47,13 +47,14 @@ def login_baru():
     if not captcha:
         return False
 
+    ip_sekarang = requests.get('https://api.ipify.org', timeout=5).text
     timestamp_sekarang = int(time.time() * 1000)
 
     payload = {
         "username": config.USERNAME,
         "password": config.PASSWORD,
         "app": "APP001",
-        "ipaddress": "103.152.232.25",
+        "ipaddress": ip_sekarang,
         "captcha": captcha,
         "captchaToken": token,
         "location": {
